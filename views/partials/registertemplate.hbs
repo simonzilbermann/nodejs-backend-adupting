@@ -1,0 +1,83 @@
+<!-- ייבוא ספריית jQuery UI -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+<!-- ייבוא ספריית ה־CSS של jQuery UI -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	 {{>homepage}}
+	 <div class="container login__container my-5">
+        <div class="row login__row">
+            <div class="col-md-6 d-flex">
+                <img class="login__imagek align-self-center" src="https://www.freevector.com/uploads/vector/preview/28488/Businessman_Happy_Accepting_News.jpg"
+                    width="100%" alt="" />
+            </div>
+            <div class="col-md-5 d-flex">
+                <div class="align-self-center card login__card shadow-sm w-100">
+                    <div class="card-body">
+                 
+                            <h2 class="text-muted text-center">דף הרשמה</h2>
+                       
+                            <div style="direction: rtl;">
+                                <div  class="form-group">
+                               
+                                    <input id="email" type="email" class="form-control form-control-lg" pattern="[^ @]*@[^ @]*"  placeholder="הכנס את האימייל שלך" required>
+                                </div>
+                                <div  class="form-group">
+                                 
+                                     <input  id="name" type="text" class="form-control form-control-lg" name="fullname" placeholder="שם " title=""required >
+                                </div>
+                                   <div  class="form-group">
+                                 
+                                     <input  id="lastname" type="text" class="form-control form-control-lg" name="fullname" placeholder="שם משפחה" title=""required >
+                                </div>
+                                
+                                   <div  class="form-group">
+                              
+                                     {{!-- <select id="city" class="form-control form-control-lg" name="city" placeholder=" עיר" title=""required >
+
+                                     </select> --}}
+                                     <select id="city" name="city" class="form-control form-control-lg" >
+                                      <option value=""> בחר עיר</option>
+                                    </select>
+                                </div>
+                                    <div  class="form-group">
+                                
+                                     <input  id="address" type="text" class="form-control form-control-lg" name="address" placeholder="רחוב" title="" required>
+                                </div>
+                                <div  class="form-group">
+                                
+                                     <input  id="phone" type="text" class="form-control form-control-lg" pattern="/^0\d([\d]{0,1})([-]{0,1})\d{7}$/" name="phone" placeholder=" טלפון" title=""required >
+                                </div>
+                                    <div  class="form-group">
+                                   <input id="Bdate" type="date" class="form-control form-control-lg" placeholder="תאריך לידה" required >
+                                     
+                                </div>
+                                   <div  class="form-group">
+                                  
+                                     <input  id="psw" type="password" class="form-control form-control-lg" name="psw" placeholder="הכנס את הסיסמה" title="חייב להכיל לפחות ספרה אחת ואות גדולה וקטנה אחת, ולפחות 8 תווים או יותר" required>
+                                </div>
+                              
+                                <div class="form-group">
+									 <button class="btn btn-primary btn-lg btn-block my-3" onclick="validatePassword()"> הרשמה</button>
+                                  
+                                    <div class="d-flex justify-content-between">
+                                  
+                                      
+                                    </div>
+                                 
+                                </div>
+								<div style=" direction: rtl;" id="message">
+  <h3 style=" direction: rtl;">הסיסמה חייבת להכיל את הדברים הבאים:</h3>
+  <p  id="letter" class="invalid"><b >אותיות קטנות</b></p>
+  <p id="capital" class="invalid"><b>אותיות רישיות</b></p>
+  <p id="number" class="invalid"><b>מספר</b></p>
+  <p id="length" class="invalid">מִינִימוּם <b>8 תווים</b></p>
+</div> 
+                            </div>
+                  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+     <script src="/scripts/scripts/registertemplate.js"></script>  

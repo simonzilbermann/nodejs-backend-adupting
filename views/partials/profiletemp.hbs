@@ -1,0 +1,200 @@
+
+
+<div class="container bootstrap snippet" >
+  <div style="display: flex; ">
+    <div class="row">
+  		<div id="img" class="col-sm-10"><h1 style="color: blue;">שלום {{name}} {{lastname}}</h1></div>      
+    </div>
+    <script>
+ 
+         const userid = sessionStorage.getItem('uid'); 
+
+      const input1 =  `<img style="border-radius: 10%;border: 2px solid black;" src="/images/${userid}.jpg" alt="" height="200px" width="200px"> `;
+    document.getElementById('img').innerHTML += input1;
+    </script>
+    <div class="sim">
+  <div class="tab-content" >    
+            <div class="tab-pane active" id="stage1" style=" display: none; ">
+              <div class="raz">
+               <h3 style="margin-left:80%;text-decoration: underline;">:שלב 1</h3> 
+                      <div  class="form-group">
+                        <h1 style="margin-left:30%;"> מצב סוציו-אקונומי</h1>
+                          <div >
+                            <h6 style="margin-left:25%; text-align: justify;text-align: center;"> עליך לבחור כמה אתה מרוויח במומצע בכל חודש מבין האפשרויות לפניך</h6>
+                           <br>
+                            <div class="simButton"></div>
+                          <input type="radio" id="salary1" name="salary" value="5000-7000">
+                            <label for="salary1"> 5,000-7,000 </label><br>
+                            <input type="radio" id="salary2" name="salary" value="7000-10000">
+                            <label for="salary2">7,000-10,000 </label><br>
+                            <input type="radio" id="salary3" name="salary" value="10000-12000">
+                            <label for="salary3"> 10,000-12,000 </label><br>
+                           
+                              <button class="button" onclick="save_salary()"> שמור</button>
+                            </div>
+                                
+                          </div>
+                      </div>
+             <!--/tab-pane-->
+            </div>
+                </div>
+             <div class="tab-pane" id="stage2" style="display: none; margin-left: 30%;" >
+              <div class="raz">
+             <h2 style="margin-left:60%;text-decoration: underline;" >:שלב 2</h2> <br>
+            <h6 style=" text-align: justify;text-align: center;">בשלב זה עליך לבחור את הלאום אליו אתה משתייך </h6><br>
+              <h5>:הלאום שלך</h5> <br>
+                <div >
+                    <select style="width: 150px" id="region">
+                      <optio  value=""> בחר לאום</option>
+                      <option value="יהודי">יהודי</option>
+                      <option value="מוסלמי">מוסלמי</option>
+                      <option value="נוצרי">נוצרי</option>
+                    </select>
+                </div>
+          <br>
+          <br>
+              <button class="button" onclick="save_region()">שמור</button>
+               
+            </div>
+        
+               
+             </div><!--/tab-pane-->
+         
+             <div class="tab-pane" id="stage3" style="display: none;">	
+              <div class="raz">
+                <h1 style="margin-left:38%;text-decoration: underline;" >:שלב העלאת נתונים</h1>
+               	<h5 style="margin-left:25%;">שלב העלאת צילום תעודת זהות </h5> 
+                <p style="color:red; text-align: center;">.שים לב שצילום תעודת הזהות חשוב למערכת כדי לאמת את הנתונים שלך שים לב שהתמונה באיכות וברורה 
+                </p>
+                 
+      
+           <form action="/upload" method="post" enctype="multipart/form-data">
+           <script> 
+            const profileid = sessionStorage.getItem('proid'); 
+         const userid2 = sessionStorage.getItem('uid');
+            var fname = userid2 + "_" + profileid +"_1";
+            const input2 = `<input type="hidden" value="${fname}" id="filename" name="filename" >`;
+              document.querySelector('form').innerHTML += input2;
+           </script>
+           <br>
+            <input style="margin-left: 18%;" type="file" name="files" class="btn btn-primary" id="file1" onchange="checkFile('file1')"  multiple><br>
+
+            
+            <button style="margin-left: 30%;" class="btn btn-primary" type="submit"  onclick="return checkFile('file1')">
+                העלה תעודת זהות
+            </button>
+
+        </form>
+</div>
+   
+           
+              </div>
+
+                <div class="tab-pane" id="stage4" style="display: none;">
+                  <div class="raz">
+                  <h1 style="margin-left:50%;text-decoration: underline;">:שלב העלאת נתונים</h1>
+                       	<h5 style="margin-left:30%;">שלב העלאת תלוש משכורת </h5> 
+                <p style="color:red; text-align: center;">.שים לב שמסמך תלוש המשכורת מהווה אימות לשכר אותו אתה מרוויח במומצע בחודש, שים לב שהקובץ קריא ואמין 
+                </p>
+                  <h6 style=" text-align: center;"> עליך לספק מסמך כמו תלוש משכורת או כל מסמך אחר שיתן תמונת מצב בנוגע לרקע הכלכלי שלך </h6>
+      
+           <form id="form2" action="/upload" method="post" enctype="multipart/form-data">
+     
+           <script> 
+            
+                 const profileid3 = sessionStorage.getItem('proid'); 
+         const userid3 = sessionStorage.getItem('uid');
+            var fname2 = userid3 + "_" + profileid3 +"_2";
+         
+          
+            const input3 = `<input type="hidden" value="${fname2}" id="filename" name="filename" >`;
+              document.getElementById('form2').innerHTML += input3;
+           </script>
+           <br>
+            <input style="margin-left: 25%;" type="file" name="files" class="btn btn-primary" id="file2" onchange="checkFile('file2')" multiple><br>
+            
+            <button style="margin-left: 35%;" class="btn btn-primary" type="submit" style="border-radius: 4px;" onclick="return checkFile('file2')">
+             העלאת קובץ
+            </button>
+        </form>
+        </div>
+                </div>
+
+                <div class="tab-pane" id="stage5" style="display: none;">
+                  <div class="raz">
+                   <h1 style="margin-left:5%;text-decoration: underline;">:שלב העלאת נתונים</h1>
+                <h5 style="margin-left:30%;">שלב העלאה רקע פלילי </h5> 
+                <p style="color:red; text-align: center;">.שים לב שמסמך רקע פלילי מהווה אימות , שים לב שהקובץ קריא ואמין 
+                </p>
+                  <form id="form3" action="/upload" method="post" enctype="multipart/form-data">
+                   <script> 
+            
+                 const profileid4 = sessionStorage.getItem('proid'); 
+         const userid4 = sessionStorage.getItem('uid');
+            var fname4 = userid4 + "_" + profileid4 +"_3";
+         
+          
+            const input4 = `<input type="hidden" value="${fname4}" id="filename" name="filename" >`;
+              document.getElementById('form3').innerHTML += input4;
+           </script>
+           <br>
+            <input style="margin-left: 10%;" type="file" name="files" class="btn btn-primary" id="file3" onchange="checkFile('file3')" multiple><br><br>
+            
+            <button style="margin-left: 31%;" class="btn btn-primary" type="submit" style="border-radius: 4px;" onclick="return checkFile('file3')">
+             העלאת קובץ
+            </button>
+
+                  
+                  
+                  
+                  </form>
+    
+
+
+            </div>
+                </div>
+
+               <div class="tab-pane" id="stage6" style="display: none;">
+          
+                    <h1 style="margin-left:40%;text-decoration: underline;">{{name}} {{lastname}} שים לב !!</h1>
+                    <br><br>
+                    <p style="font-size: larger; font-weight:bold;text-align: center; ">הפרופיל שלך כרגע בשלבי אימות!
+כעת מנהל המערכת בוחן את הנתונים שהתקבלו במידה והפרופיל שלך יאושר
+תקבל מייל בהתאם וקישור לחזרה להתקדמות בשלבי האימות
+אנא התעדכן במייל מעת לעת </p>
+<br><br><br>
+                    <a class="button" style="text-decoration: none; color:white;margin-left:32%;" href="/about#contact">צור קשר במידה ומשהו לא ברור</a>
+                    </div>
+                  </div>
+ 
+  </div> 
+    </div>
+    
+  <div style="margin-left: 3%;" class="row">
+  		<div class="col-sm-3"><!--left col-->
+      <div class="text-center">
+      </div></hr> <br>  <br>  <br>
+          <ul class="list-group" style="direction: rtl;">
+            <li  class="list-group-item text-muted" ><h5 style="color: cornflowerblue;">מצב הפרופיל</h5></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>סטטוס</strong></span>  {{status}}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>כתובת מייל</strong></span> {{email}}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>טלפון</strong></span> {{phone}} </li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>עיר</strong></span>  {{city}}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>תאריך לידה</strong></span> {{d_of_birth}} </li>
+        
+          </ul>
+          <br>  <br>
+        </div><!--/col-3-->
+     
+  
+   
+  </section>
+    </div>
+
+                
+</div>
+
+    <script src="/scripts/scripts/profiletemp.js"></script>   
+
+  
+ 

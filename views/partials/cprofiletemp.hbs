@@ -1,0 +1,88 @@
+
+
+ <script src="/scripts/scripts/cprofiletemp.js"></script>  
+
+    <div class="container login__container my-5">
+        <div class="row login__row">
+            <div class="col-md-6 d-flex">
+                <img style="border-radius: 50%; border: 2px solid black;" class="login__imagek align-self-center" src="https://cdn.stocksnap.io/img-thumbs/960w/black-family_JJM30OAQR3.jpg"
+                    width="100%" alt="" />
+            </div>
+            <div class="col-md-5 d-flex">
+                <div class="align-self-center card login__card shadow-sm w-100">
+                    <div class="card-body"  class="text-muted text-center">
+                            <h4 class="text-right">  שלב העלאת תמונה </h4>
+                    </div>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                                <script>
+                        const userid2 = sessionStorage.getItem('uid'); 
+                        const input1 = `<input type="hidden" value="${userid2}" placeholder="${userid2}" id="filename" name="filename" >`;
+                        document.querySelector('form').innerHTML += input1;
+                        </script>
+                        <input style="margin-left:15%;" type="file" name="files" class="btn btn-primary" id="file" multiple>
+                        <br>
+                        <br>
+                        <button class="btn btn-primary" type="submit" style="border-radius: 4px; margin-left: 30%;">
+                        העלה תמונת פרופיל
+                        </button>
+                    </form>
+   
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+     
+                    
+    
+  
